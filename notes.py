@@ -1,6 +1,7 @@
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
+from PyQt5 import QtCore
 from PyQt5.QtMultimedia import *
 from PyQt5.QtMultimediaWidgets import *
 
@@ -38,7 +39,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, *args, obj=None, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
         self.setupUi(self)
-        self.setWindowFlags(self.windowFlags() | Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
+        self.setWindowFlags(self.windowFlags() | Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | QtCore.Qt.Tool)
         self.show()
 
         # Load/save note data, store this notes db reference.
@@ -94,7 +95,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
 if __name__ == '__main__':
     app = QApplication([])
-    app.setApplicationName("Brown Note")
+    app.setApplicationName("Noto")
     app.setStyle("Fusion")
 
     # Custom brown palette.
